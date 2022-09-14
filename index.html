@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(34, 193, 195);
+            background: linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgba(40, 224, 164, 1) 57%, rgba(45, 253, 135, 1) 100%);
+        }
+
+        .calculator {
+            margin-top: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .black {
+            opacity: 80%;
+            background-color: black;
+            height: 15vh;
+            width: 19.7vw;
+            color: white;
+            display: flex;
+            justify-content: right;
+            align-items: flex-end;
+            outline: none;
+            border: none;
+            text-align: right;
+            align-items: baseline;
+        }
+
+        .calc {
+            background-color: white;
+            height: 51vh;
+            width: 20vw;
+            align-items: center;
+        }
+
+        .first,
+        .second,
+        .third,
+        .fourth,
+        .fifth {
+            display: flex;
+            padding-top: 1px;
+            justify-content: space-between;
+        }
+
+        button {
+            background-color: #c2f4ef;
+            margin-left: 1px;
+            height: 10vh;
+            width: 10vw;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #big{
+            padding: 0 22.8%;
+        }
+
+        #big1 {
+            width: 21.35vw;
+        }
+
+        button:hover {
+            background-color: #a1efe7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="one">
+            <input type="text" class="black">
+            <div class="calc">
+                <div class="buttons">
+                    <div class="first">
+                        <button class="btn" id="big1">AC</button>
+                        <button class="btn">%</button>
+                        <button class="btn">&#247</button>
+                    </div>
+
+                    <div class="second">
+                        <button class="btn">1</button>
+                        <button class="btn">2</button>
+                        <button class="btn">3</button>
+                        <button class="btn">✕</button>
+                    </div>
+
+                    <div class="third">
+                        <button class="btn">4</button>
+                        <button class="btn">5</button>
+                        <button class="btn">6</button>
+                        <button class="btn">+</button>
+                    </div>
+
+                    <div class="fourth">
+                        <button class="btn">7</button>
+                        <button class="btn">8</button>
+                        <button class="btn">9</button>
+                        <button class="btn">-</button>
+                    </div>
+                    <div class="fifth">
+                        <button class="btn">.</button>
+                        <button class="btn">0</button>
+                        <button class="btn" id="big">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+<script>
+    var a = document.querySelector(".black")
+    a.value = "The Answer"
+
+    var b = document.querySelectorAll(".btn")
+
+    var calculation = ""
+
+    for (item of b) {
+        item.addEventListener("click", function(event){
+            var btntext = event.target.innerText
+            if(btntext=="✕"){
+                btntext = "*"
+                calculation += btntext
+                a.value = calculation}
+            else if(btntext=="="){
+                a.value = eval(calculation)
+            }else if(btntext == "AC"){
+                calculation = "";
+                a.value = calculation}
+            else if(btntext == "÷"){
+                btntext = "/";
+                calculation += btntext
+                a.value = calculation}
+            
+            else{
+            calculation += btntext;
+            a.value = calculation;
+            }
+        })
+    }
+
+    
+
+</script>
+
+</html>
